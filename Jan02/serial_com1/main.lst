@@ -1,0 +1,124 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 889A      		sbi 49-32,0
+  25               	.LM3:
+  26 0002 88EE      		ldi r24,lo8(1000)
+  27 0004 93E0      		ldi r25,hi8(1000)
+  28               	.LVL0:
+  29               	.LBB18:
+  30               	.LBB19:
+  31               	.LBB20:
+  32               	.LBB21:
+  33               	.LM4:
+  34 0006 28EC      		ldi r18,lo8(200)
+  35 0008 30E0      		ldi r19,hi8(200)
+  36               	.L2:
+  37 000a F901      		movw r30,r18
+  38               	.LVL1:
+  39               	/* #APP */
+  40               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  41 000c 3197      		1: sbiw r30,1
+  42 000e 01F4      		brne 1b
+  43               	 ;  0 "" 2
+  44               	/* #NOAPP */
+  45               	.LBE21:
+  46               	.LBE20:
+  47               	.LM5:
+  48 0010 0197      		sbiw r24,1
+  49               	.LM6:
+  50 0012 01F4      		brne .L2
+  51 0014 20E0      		ldi r18,lo8(0)
+  52 0016 30E0      		ldi r19,hi8(0)
+  53               	.LVL2:
+  54               	.LBE19:
+  55               	.LBE18:
+  56               	.LM7:
+  57 0018 63E3      		ldi r22,lo8(51)
+  58 001a 70E0      		ldi r23,hi8(51)
+  59               	.LBB22:
+  60               	.LBB23:
+  61               	.LBB24:
+  62               	.LBB25:
+  63               	.LM8:
+  64 001c 48EC      		ldi r20,lo8(200)
+  65 001e 50E0      		ldi r21,hi8(200)
+  66               	.LVL3:
+  67               	.L4:
+  68               	.LBE25:
+  69               	.LBE24:
+  70               	.LBE23:
+  71               	.LBE22:
+  72               	.LM9:
+  73 0020 CB01      		movw r24,r22
+  74               	.LVL4:
+  75 0022 022E      		mov r0,r18
+  76 0024 00C0      		rjmp 2f
+  77 0026 9595      	1:	asr r25
+  78 0028 8795      		ror r24
+  79 002a 0A94      	2:	dec r0
+  80 002c 02F4      		brpl 1b
+  81 002e 82BB      		out 50-32,r24
+  82 0030 88EE      		ldi r24,lo8(1000)
+  83 0032 93E0      		ldi r25,hi8(1000)
+  84               	.LVL5:
+  85               	.L3:
+  86               	.LBB29:
+  87               	.LBB28:
+  88               	.LBB27:
+  89               	.LBB26:
+  90               	.LM10:
+  91 0034 FA01      		movw r30,r20
+  92               	.LVL6:
+  93               	/* #APP */
+  94               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  95 0036 3197      		1: sbiw r30,1
+  96 0038 01F4      		brne 1b
+  97               	 ;  0 "" 2
+  98               	/* #NOAPP */
+  99               	.LBE26:
+ 100               	.LBE27:
+ 101               	.LM11:
+ 102 003a 0197      		sbiw r24,1
+ 103               	.LM12:
+ 104 003c 01F4      		brne .L3
+ 105               	.LBE28:
+ 106               	.LBE29:
+ 107               	.LM13:
+ 108 003e 2F5F      		subi r18,lo8(-(1))
+ 109 0040 3F4F      		sbci r19,hi8(-(1))
+ 110               	.LM14:
+ 111 0042 2830      		cpi r18,8
+ 112 0044 3105      		cpc r19,__zero_reg__
+ 113 0046 01F4      		brne .L4
+ 114               	.LM15:
+ 115 0048 80E0      		ldi r24,lo8(0)
+ 116 004a 90E0      		ldi r25,hi8(0)
+ 117               	.LVL7:
+ 118               	/* epilogue start */
+ 119 004c 0895      		ret
+ 120               	.LFE6:
+ 146               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\Prio\AppData\Local\Temp/cc5hIuKh.s:2      *ABS*:0000003f __SREG__
+C:\Users\Prio\AppData\Local\Temp/cc5hIuKh.s:3      *ABS*:0000003e __SP_H__
+C:\Users\Prio\AppData\Local\Temp/cc5hIuKh.s:4      *ABS*:0000003d __SP_L__
+C:\Users\Prio\AppData\Local\Temp/cc5hIuKh.s:5      *ABS*:00000034 __CCP__
+C:\Users\Prio\AppData\Local\Temp/cc5hIuKh.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Prio\AppData\Local\Temp/cc5hIuKh.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Prio\AppData\Local\Temp/cc5hIuKh.s:18     .text:00000000 main
+
+NO UNDEFINED SYMBOLS

@@ -1,0 +1,178 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	ADC_Initialization
+  18               	ADC_Initialization:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 80E4      		ldi r24,lo8(64)
+  25 0002 87B9      		out 39-32,r24
+  26               	.LM3:
+  27 0004 82E8      		ldi r24,lo8(-126)
+  28 0006 86B9      		out 38-32,r24
+  29               	/* epilogue start */
+  30               	.LM4:
+  31 0008 0895      		ret
+  32               	.LFE6:
+  34               	.global	Read_ADC
+  36               	Read_ADC:
+  37               	.LFB7:
+  38               	.LM5:
+  39               	/* prologue: function */
+  40               	/* frame size = 0 */
+  41               	.LM6:
+  42 000a 399A      		sbi 39-32,1
+  43               	.LM7:
+  44 000c 369A      		sbi 38-32,6
+  45               	.L4:
+  46               	.LM8:
+  47 000e 3699      		sbic 38-32,6
+  48 0010 00C0      		rjmp .L4
+  49               	.LM9:
+  50 0012 24B1      		in r18,36-32
+  51 0014 30E0      		ldi r19,lo8(0)
+  52               	.LM10:
+  53 0016 45B1      		in r20,37-32
+  54 0018 942F      		mov r25,r20
+  55 001a 80E0      		ldi r24,lo8(0)
+  56 001c 282B      		or r18,r24
+  57 001e 392B      		or r19,r25
+  58               	.LM11:
+  59 0020 C901      		movw r24,r18
+  60               	/* epilogue start */
+  61 0022 0895      		ret
+  62               	.LFE7:
+  64               	.global	init_int0
+  66               	init_int0:
+  67               	.LFB9:
+  68               	.LM12:
+  69               	/* prologue: function */
+  70               	/* frame size = 0 */
+  71               	.LM13:
+  72               	/* #APP */
+  73               	 ;  60 "main.c" 1
+  74 0024 7894      		sei
+  75               	 ;  0 "" 2
+  76               	.LM14:
+  77               	/* #NOAPP */
+  78 0026 85B7      		in r24,85-32
+  79 0028 8360      		ori r24,lo8(3)
+  80 002a 85BF      		out 85-32,r24
+  81               	.LM15:
+  82 002c 8BB7      		in r24,91-32
+  83 002e 8064      		ori r24,lo8(64)
+  84 0030 8BBF      		out 91-32,r24
+  85               	/* epilogue start */
+  86               	.LM16:
+  87 0032 0895      		ret
+  88               	.LFE9:
+  90               	.global	__vector_1
+  92               	__vector_1:
+  93               	.LFB10:
+  94               	.LM17:
+  95 0034 1F92      		push __zero_reg__
+  96 0036 0F92      		push r0
+  97 0038 0FB6      		in r0,__SREG__
+  98 003a 0F92      		push r0
+  99 003c 1124      		clr __zero_reg__
+ 100 003e 8F93      		push r24
+ 101               	/* prologue: Signal */
+ 102               	/* frame size = 0 */
+ 103               	.LM18:
+ 104 0040 82B3      		in r24,50-32
+ 105 0042 8058      		subi r24,lo8(-(-128))
+ 106 0044 82BB      		out 50-32,r24
+ 107               	/* epilogue start */
+ 108               	.LM19:
+ 109 0046 8F91      		pop r24
+ 110 0048 0F90      		pop r0
+ 111 004a 0FBE      		out __SREG__,r0
+ 112 004c 0F90      		pop r0
+ 113 004e 1F90      		pop __zero_reg__
+ 114 0050 1895      		reti
+ 115               	.LFE10:
+ 117               	.global	main
+ 119               	main:
+ 120               	.LFB8:
+ 121               	.LM20:
+ 122               	/* prologue: function */
+ 123               	/* frame size = 0 */
+ 124               	.LBB7:
+ 125               	.LBB8:
+ 126               	.LM21:
+ 127               	/* #APP */
+ 128               	 ;  60 "main.c" 1
+ 129 0052 7894      		sei
+ 130               	 ;  0 "" 2
+ 131               	.LM22:
+ 132               	/* #NOAPP */
+ 133 0054 85B7      		in r24,85-32
+ 134 0056 8360      		ori r24,lo8(3)
+ 135 0058 85BF      		out 85-32,r24
+ 136               	.LM23:
+ 137 005a 8BB7      		in r24,91-32
+ 138 005c 8064      		ori r24,lo8(64)
+ 139 005e 8BBF      		out 91-32,r24
+ 140               	.LBE8:
+ 141               	.LBE7:
+ 142               	.LBB9:
+ 143               	.LBB10:
+ 144               	.LM24:
+ 145 0060 80E4      		ldi r24,lo8(64)
+ 146 0062 87B9      		out 39-32,r24
+ 147               	.LM25:
+ 148 0064 82E8      		ldi r24,lo8(-126)
+ 149 0066 86B9      		out 38-32,r24
+ 150               	.LBE10:
+ 151               	.LBE9:
+ 152               	.LM26:
+ 153 0068 84B3      		in r24,52-32
+ 154 006a 8FEF      		ldi r24,lo8(-1)
+ 155 006c 84BB      		out 52-32,r24
+ 156               	.LM27:
+ 157 006e 81B3      		in r24,49-32
+ 158 0070 8363      		ori r24,lo8(51)
+ 159 0072 81BB      		out 49-32,r24
+ 160               	.LM28:
+ 161 0074 8F9A      		sbi 49-32,7
+ 162               	.LM29:
+ 163 0076 9798      		cbi 50-32,7
+ 164               	.L12:
+ 165               	.LBB11:
+ 166               	.LM30:
+ 167 0078 0E94 0000 		call Read_ADC
+ 168               	.LM31:
+ 169 007c 62E0      		ldi r22,lo8(2)
+ 170 007e 70E0      		ldi r23,hi8(2)
+ 171 0080 0E94 0000 		call __divmodhi4
+ 172 0084 CB01      		movw r24,r22
+ 173 0086 0E94 0000 		call BCD_Converter
+ 174 008a 00C0      		rjmp .L12
+ 175               	.LBE11:
+ 176               	.LFE8:
+ 234               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\Prio\AppData\Local\Temp/ccQsdyYg.s:2      *ABS*:0000003f __SREG__
+C:\Users\Prio\AppData\Local\Temp/ccQsdyYg.s:3      *ABS*:0000003e __SP_H__
+C:\Users\Prio\AppData\Local\Temp/ccQsdyYg.s:4      *ABS*:0000003d __SP_L__
+C:\Users\Prio\AppData\Local\Temp/ccQsdyYg.s:5      *ABS*:00000034 __CCP__
+C:\Users\Prio\AppData\Local\Temp/ccQsdyYg.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Prio\AppData\Local\Temp/ccQsdyYg.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Prio\AppData\Local\Temp/ccQsdyYg.s:18     .text:00000000 ADC_Initialization
+C:\Users\Prio\AppData\Local\Temp/ccQsdyYg.s:36     .text:0000000a Read_ADC
+C:\Users\Prio\AppData\Local\Temp/ccQsdyYg.s:66     .text:00000024 init_int0
+C:\Users\Prio\AppData\Local\Temp/ccQsdyYg.s:92     .text:00000034 __vector_1
+C:\Users\Prio\AppData\Local\Temp/ccQsdyYg.s:119    .text:00000052 main
+
+UNDEFINED SYMBOLS
+__divmodhi4
+BCD_Converter

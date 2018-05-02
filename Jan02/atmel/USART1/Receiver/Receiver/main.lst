@@ -1,0 +1,139 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	US_RX
+  18               	US_RX:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.L2:
+  24               	.LM2:
+  25 0000 5F9B      		sbis 43-32,7
+  26 0002 00C0      		rjmp .L2
+  27               	.LM3:
+  28 0004 8CB1      		in r24,44-32
+  29               	/* epilogue start */
+  30               	.LM4:
+  31 0006 0895      		ret
+  32               	.LFE6:
+  34               	.global	US_config
+  36               	US_config:
+  37               	.LFB7:
+  38               	.LM5:
+  39               	/* prologue: function */
+  40               	/* frame size = 0 */
+  41               	.LM6:
+  42 0008 85EC      		ldi r24,lo8(-59)
+  43 000a 89B9      		out 41-32,r24
+  44               	.LM7:
+  45 000c 82E0      		ldi r24,lo8(2)
+  46 000e 80BD      		out 64-32,r24
+  47               	.LM8:
+  48 0010 80E1      		ldi r24,lo8(16)
+  49 0012 8AB9      		out 42-32,r24
+  50               	.LM9:
+  51 0014 86E8      		ldi r24,lo8(-122)
+  52 0016 80BD      		out 64-32,r24
+  53               	/* epilogue start */
+  54               	.LM10:
+  55 0018 0895      		ret
+  56               	.LFE7:
+  58               	.global	main
+  60               	main:
+  61               	.LFB8:
+  62               	.LM11:
+  63               	/* prologue: function */
+  64               	/* frame size = 0 */
+  65               	.LM12:
+  66 001a 84B3      		in r24,52-32
+  67 001c 8FEF      		ldi r24,lo8(-1)
+  68 001e 84BB      		out 52-32,r24
+  69               	.LBB16:
+  70               	.LBB17:
+  71               	.LM13:
+  72 0020 85EC      		ldi r24,lo8(-59)
+  73 0022 89B9      		out 41-32,r24
+  74               	.LM14:
+  75 0024 82E0      		ldi r24,lo8(2)
+  76 0026 80BD      		out 64-32,r24
+  77               	.LM15:
+  78 0028 80E1      		ldi r24,lo8(16)
+  79 002a 8AB9      		out 42-32,r24
+  80               	.LM16:
+  81 002c 86E8      		ldi r24,lo8(-122)
+  82 002e 80BD      		out 64-32,r24
+  83               	.LBE17:
+  84               	.LBE16:
+  85               	.LBB18:
+  86               	.LBB19:
+  87               	.LBB20:
+  88               	.LBB21:
+  89               	.LM17:
+  90 0030 20E9      		ldi r18,lo8(400)
+  91 0032 31E0      		ldi r19,hi8(400)
+  92               	.LVL0:
+  93               	.L14:
+  94               	.LBE21:
+  95               	.LBE20:
+  96               	.LBE19:
+  97               	.LBE18:
+  98               	.LBB25:
+  99               	.LBB26:
+ 100               	.LM18:
+ 101 0034 5F9B      		sbis 43-32,7
+ 102 0036 00C0      		rjmp .L14
+ 103               	.LM19:
+ 104 0038 8CB1      		in r24,44-32
+ 105               	.LVL1:
+ 106               	.LBE26:
+ 107               	.LBE25:
+ 108               	.LM20:
+ 109 003a 85BB      		out 53-32,r24
+ 110 003c 88E8      		ldi r24,lo8(5000)
+ 111 003e 93E1      		ldi r25,hi8(5000)
+ 112               	.LVL2:
+ 113               	.L9:
+ 114               	.LBB27:
+ 115               	.LBB24:
+ 116               	.LBB23:
+ 117               	.LBB22:
+ 118               	.LM21:
+ 119 0040 F901      		movw r30,r18
+ 120               	/* #APP */
+ 121               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 122 0042 3197      		1: sbiw r30,1
+ 123 0044 01F4      		brne 1b
+ 124               	 ;  0 "" 2
+ 125               	/* #NOAPP */
+ 126               	.LBE22:
+ 127               	.LBE23:
+ 128               	.LM22:
+ 129 0046 0197      		sbiw r24,1
+ 130               	.LM23:
+ 131 0048 01F4      		brne .L9
+ 132               	.LBE24:
+ 133               	.LBE27:
+ 134               	.LM24:
+ 135 004a 15BA      		out 53-32,__zero_reg__
+ 136 004c 00C0      		rjmp .L14
+ 137               	.LFE8:
+ 179               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\Prio\AppData\Local\Temp/ccoVpDIR.s:2      *ABS*:0000003f __SREG__
+C:\Users\Prio\AppData\Local\Temp/ccoVpDIR.s:3      *ABS*:0000003e __SP_H__
+C:\Users\Prio\AppData\Local\Temp/ccoVpDIR.s:4      *ABS*:0000003d __SP_L__
+C:\Users\Prio\AppData\Local\Temp/ccoVpDIR.s:5      *ABS*:00000034 __CCP__
+C:\Users\Prio\AppData\Local\Temp/ccoVpDIR.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Prio\AppData\Local\Temp/ccoVpDIR.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Prio\AppData\Local\Temp/ccoVpDIR.s:18     .text:00000000 US_RX
+C:\Users\Prio\AppData\Local\Temp/ccoVpDIR.s:36     .text:00000008 US_config
+C:\Users\Prio\AppData\Local\Temp/ccoVpDIR.s:60     .text:0000001a main
+
+NO UNDEFINED SYMBOLS

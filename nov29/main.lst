@@ -1,0 +1,127 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB6:
+  20               	.LM1:
+  21 0000 DF93      		push r29
+  22 0002 CF93      		push r28
+  23 0004 CDB7      		in r28,__SP_L__
+  24 0006 DEB7      		in r29,__SP_H__
+  25 0008 6497      		sbiw r28,20
+  26 000a 0FB6      		in __tmp_reg__,__SREG__
+  27 000c F894      		cli
+  28 000e DEBF      		out __SP_H__,r29
+  29 0010 0FBE      		out __SREG__,__tmp_reg__
+  30 0012 CDBF      		out __SP_L__,r28
+  31               	/* prologue: function */
+  32               	/* frame size = 20 */
+  33               	.LM2:
+  34 0014 84B3      		in r24,52-32
+  35 0016 8FEF      		ldi r24,lo8(-1)
+  36 0018 84BB      		out 52-32,r24
+  37               	.LBB13:
+  38               	.LM3:
+  39 001a 9E01      		movw r18,r28
+  40 001c 2F5F      		subi r18,lo8(-(1))
+  41 001e 3F4F      		sbci r19,hi8(-(1))
+  42               	.LBB14:
+  43               	.LBB15:
+  44               	.LBB16:
+  45               	.LBB17:
+  46               	.LM4:
+  47 0020 68EC      		ldi r22,lo8(200)
+  48 0022 70E0      		ldi r23,hi8(200)
+  49               	.LBE17:
+  50               	.LBE16:
+  51               	.LBE15:
+  52               	.LBE14:
+  53               	.LM5:
+  54 0024 AE01      		movw r20,r28
+  55 0026 4B5E      		subi r20,lo8(-(21))
+  56 0028 5F4F      		sbci r21,hi8(-(21))
+  57               	.LVL0:
+  58               	.L5:
+  59               	.LM6:
+  60 002a D901      		movw r26,r18
+  61 002c E0E0      		ldi r30,lo8(C.1.1251)
+  62 002e F0E0      		ldi r31,hi8(C.1.1251)
+  63               	.LVL1:
+  64 0030 84E1      		ldi r24,lo8(20)
+  65               	.LVL2:
+  66               	.L2:
+  67 0032 0190      		ld r0,Z+
+  68 0034 0D92      		st X+,r0
+  69 0036 8150      		subi r24,lo8(-(-1))
+  70 0038 01F4      		brne .L2
+  71 003a D901      		movw r26,r18
+  72               	.LVL3:
+  73               	.L4:
+  74               	.LM7:
+  75 003c 8C91      		ld r24,X
+  76               	.LVL4:
+  77 003e 85BB      		out 53-32,r24
+  78 0040 80ED      		ldi r24,lo8(2000)
+  79 0042 97E0      		ldi r25,hi8(2000)
+  80               	.LVL5:
+  81               	.L3:
+  82               	.LBB21:
+  83               	.LBB20:
+  84               	.LBB19:
+  85               	.LBB18:
+  86               	.LM8:
+  87 0044 FB01      		movw r30,r22
+  88               	/* #APP */
+  89               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  90 0046 3197      		1: sbiw r30,1
+  91 0048 01F4      		brne 1b
+  92               	 ;  0 "" 2
+  93               	/* #NOAPP */
+  94               	.LBE18:
+  95               	.LBE19:
+  96               	.LM9:
+  97 004a 0197      		sbiw r24,1
+  98               	.LM10:
+  99 004c 01F4      		brne .L3
+ 100 004e 1496      		adiw r26,4
+ 101               	.LBE20:
+ 102               	.LBE21:
+ 103               	.LM11:
+ 104 0050 A417      		cp r26,r20
+ 105 0052 B507      		cpc r27,r21
+ 106 0054 01F4      		brne .L4
+ 107 0056 00C0      		rjmp .L5
+ 108               	.LBE13:
+ 109               	.LFE6:
+ 111               		.data
+ 114               	C.1.1251:
+ 115 0000 3F00      		.word	63
+ 116 0002 0600      		.word	6
+ 117 0004 5B00      		.word	91
+ 118 0006 4F00      		.word	79
+ 119 0008 6600      		.word	102
+ 120 000a 6D00      		.word	109
+ 121 000c 7C00      		.word	124
+ 122 000e 0700      		.word	7
+ 123 0010 7F00      		.word	127
+ 124 0012 6F00      		.word	111
+ 149               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\Prio\AppData\Local\Temp/cc5vpeMT.s:2      *ABS*:0000003f __SREG__
+C:\Users\Prio\AppData\Local\Temp/cc5vpeMT.s:3      *ABS*:0000003e __SP_H__
+C:\Users\Prio\AppData\Local\Temp/cc5vpeMT.s:4      *ABS*:0000003d __SP_L__
+C:\Users\Prio\AppData\Local\Temp/cc5vpeMT.s:5      *ABS*:00000034 __CCP__
+C:\Users\Prio\AppData\Local\Temp/cc5vpeMT.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Prio\AppData\Local\Temp/cc5vpeMT.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Prio\AppData\Local\Temp/cc5vpeMT.s:18     .text:00000000 main
+C:\Users\Prio\AppData\Local\Temp/cc5vpeMT.s:114    .data:00000000 C.1.1251
+
+UNDEFINED SYMBOLS
+__do_copy_data

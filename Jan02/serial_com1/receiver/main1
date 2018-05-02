@@ -1,0 +1,32 @@
+#include<avr/io.h>
+#include<util/delay.h>
+#include<lcd.h>
+
+int main(){
+DDRA=DDRA | 0b00000001;
+DDRA=DDRA & 0b11111011;
+
+
+
+char a[8] = {};
+
+for(int i=0; i<=7; i++){
+
+char button1_status = PINA & 0b00000100;
+
+if(button1_status){
+a[i]= 1;
+PORTA=PORTA | 0b00000001;
+}else{
+a[i]= 0;
+PORTA=PORTA & 0b00000000;
+}
+
+_delay_ms(102);
+
+}
+LCDInit(0);// pass 1 for cursor blinking 
+LCDClear();
+LCDWriteString(a);
+
+}

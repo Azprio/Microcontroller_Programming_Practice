@@ -1,0 +1,47 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB2:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 83B7      		in r24,83-32
+  25 0002 8560      		ori r24,lo8(5)
+  26 0004 83BF      		out 83-32,r24
+  27               	.LM3:
+  28 0006 A09A      		sbi 52-32,0
+  29               	.LM4:
+  30 0008 91E0      		ldi r25,lo8(1)
+  31               	.L6:
+  32               	.LM5:
+  33 000a 82B7      		in r24,82-32
+  34 000c 8136      		cpi r24,lo8(97)
+  35 000e 00F0      		brlo .L6
+  36               	.LM6:
+  37 0010 85B3      		in r24,53-32
+  38 0012 8927      		eor r24,r25
+  39 0014 85BB      		out 53-32,r24
+  40               	.LM7:
+  41 0016 12BE      		out 82-32,__zero_reg__
+  42 0018 00C0      		rjmp .L6
+  43               	.LFE2:
+  69               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\Prio\AppData\Local\Temp/ccr4CYwu.s:2      *ABS*:0000003f __SREG__
+C:\Users\Prio\AppData\Local\Temp/ccr4CYwu.s:3      *ABS*:0000003e __SP_H__
+C:\Users\Prio\AppData\Local\Temp/ccr4CYwu.s:4      *ABS*:0000003d __SP_L__
+C:\Users\Prio\AppData\Local\Temp/ccr4CYwu.s:5      *ABS*:00000034 __CCP__
+C:\Users\Prio\AppData\Local\Temp/ccr4CYwu.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Prio\AppData\Local\Temp/ccr4CYwu.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Prio\AppData\Local\Temp/ccr4CYwu.s:18     .text:00000000 main
+
+NO UNDEFINED SYMBOLS

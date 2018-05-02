@@ -1,0 +1,140 @@
+
+Receiver.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000ae  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  00000102  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .comment      00000030  00000000  00000000  00000102  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000134  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000030  00000000  00000000  00000170  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   0000063f  00000000  00000000  000001a0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000005b2  00000000  00000000  000007df  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000287  00000000  00000000  00000d91  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000044  00000000  00000000  00001018  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000330  00000000  00000000  0000105c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 00000020  00000000  00000000  0000138c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   8:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  10:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  14:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  18:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  1c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  20:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  24:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  28:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  2c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  30:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  34:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  38:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  3c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  40:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  44:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  48:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  4c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  50:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+  60:	0e 94 43 00 	call	0x86	; 0x86 <main>
+  64:	0c 94 55 00 	jmp	0xaa	; 0xaa <_exit>
+
+00000068 <__bad_interrupt>:
+  68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000006c <US_RX>:
+#define BAUD_Rate 9600
+#define UBRR_Value (F_CPU/(BAUD_Rate*16))-1
+
+unsigned char US_RX()
+{
+	while(!(UCSRA & (1<<RXC))){
+  6c:	5f 9b       	sbis	0x0b, 7	; 11
+  6e:	fe cf       	rjmp	.-4      	; 0x6c <US_RX>
+		
+	}
+	
+	return UDR;
+  70:	8c b1       	in	r24, 0x0c	; 12
+}
+  72:	08 95       	ret
+
+00000074 <US_config>:
+
+
+void US_config(){
+	UBRRL = UBRR_Value;
+  74:	85 ec       	ldi	r24, 0xC5	; 197
+  76:	89 b9       	out	0x09, r24	; 9
+	UBRRH = UBRR_Value>>8;
+  78:	82 e0       	ldi	r24, 0x02	; 2
+  7a:	80 bd       	out	0x20, r24	; 32
+	UCSRB = (1<<RXEN);
+  7c:	80 e1       	ldi	r24, 0x10	; 16
+  7e:	8a b9       	out	0x0a, r24	; 10
+	UCSRC = (1<<URSEL)|(3<<UCSZ0);
+  80:	86 e8       	ldi	r24, 0x86	; 134
+  82:	80 bd       	out	0x20, r24	; 32
+  84:	08 95       	ret
+
+00000086 <main>:
+
+
+int main(void)
+{
+	unsigned char d = 0;
+	DDRC |=0xff; 
+  86:	84 b3       	in	r24, 0x14	; 20
+  88:	8f ef       	ldi	r24, 0xFF	; 255
+  8a:	84 bb       	out	0x14, r24	; 20
+	US_config();    
+  8c:	0e 94 3a 00 	call	0x74	; 0x74 <US_config>
+    while (1) 
+    {
+		PORTC = US_RX();
+  90:	0e 94 36 00 	call	0x6c	; 0x6c <US_RX>
+  94:	85 bb       	out	0x15, r24	; 21
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  96:	2f ef       	ldi	r18, 0xFF	; 255
+  98:	83 ed       	ldi	r24, 0xD3	; 211
+  9a:	90 e3       	ldi	r25, 0x30	; 48
+  9c:	21 50       	subi	r18, 0x01	; 1
+  9e:	80 40       	sbci	r24, 0x00	; 0
+  a0:	90 40       	sbci	r25, 0x00	; 0
+  a2:	e1 f7       	brne	.-8      	; 0x9c <main+0x16>
+  a4:	00 c0       	rjmp	.+0      	; 0xa6 <main+0x20>
+  a6:	00 00       	nop
+  a8:	f3 cf       	rjmp	.-26     	; 0x90 <main+0xa>
+
+000000aa <_exit>:
+  aa:	f8 94       	cli
+
+000000ac <__stop_program>:
+  ac:	ff cf       	rjmp	.-2      	; 0xac <__stop_program>

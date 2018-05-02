@@ -1,0 +1,193 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	US_TX
+  18               	US_TX:
+  19               	.LFB7:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LVL0:
+  24               	.L2:
+  25               	.LM2:
+  26 0000 5D9B      		sbis 43-32,5
+  27 0002 00C0      		rjmp .L2
+  28               	.LM3:
+  29 0004 8CB9      		out 44-32,r24
+  30               	/* epilogue start */
+  31               	.LM4:
+  32 0006 0895      		ret
+  33               	.LFE7:
+  35               	.global	send_string
+  37               	send_string:
+  38               	.LFB8:
+  39               	.LM5:
+  40               	.LVL1:
+  41               	/* prologue: function */
+  42               	/* frame size = 0 */
+  43               	.LM6:
+  44 0008 FC01      		movw r30,r24
+  45               	.LVL2:
+  46 000a 00C0      		rjmp .L6
+  47               	.L9:
+  48               	.LBB10:
+  49               	.LBB11:
+  50               	.LM7:
+  51 000c 5D9B      		sbis 43-32,5
+  52 000e 00C0      		rjmp .L9
+  53               	.LM8:
+  54 0010 8CB9      		out 44-32,r24
+  55 0012 3196      		adiw r30,1
+  56               	.L6:
+  57               	.LBE11:
+  58               	.LBE10:
+  59               	.LM9:
+  60 0014 8081      		ld r24,Z
+  61 0016 8823      		tst r24
+  62 0018 01F4      		brne .L9
+  63               	/* epilogue start */
+  64               	.LM10:
+  65 001a 0895      		ret
+  66               	.LFE8:
+  68               	.global	send_strin
+  70               	send_strin:
+  71               	.LFB9:
+  72               	.LM11:
+  73               	.LVL3:
+  74               	/* prologue: function */
+  75               	/* frame size = 0 */
+  76 001c FC01      		movw r30,r24
+  77 001e 00C0      		rjmp .L12
+  78               	.LVL4:
+  79               	.L15:
+  80               	.LBB12:
+  81               	.LBB13:
+  82               	.LM12:
+  83 0020 5D9B      		sbis 43-32,5
+  84 0022 00C0      		rjmp .L15
+  85               	.LBE13:
+  86               	.LBE12:
+  87               	.LM13:
+  88 0024 3196      		adiw r30,1
+  89               	.LBB15:
+  90               	.LBB14:
+  91               	.LM14:
+  92 0026 8CB9      		out 44-32,r24
+  93               	.LVL5:
+  94               	.L12:
+  95               	.LBE14:
+  96               	.LBE15:
+  97               	.LM15:
+  98 0028 8081      		ld r24,Z
+  99 002a 8823      		tst r24
+ 100 002c 01F4      		brne .L15
+ 101               	/* epilogue start */
+ 102               	.LM16:
+ 103 002e 0895      		ret
+ 104               	.LFE9:
+ 106               	.global	US_RX
+ 108               	US_RX:
+ 109               	.LFB10:
+ 110               	.LM17:
+ 111               	/* prologue: function */
+ 112               	/* frame size = 0 */
+ 113               	.L18:
+ 114               	.LM18:
+ 115 0030 5F9B      		sbis 43-32,7
+ 116 0032 00C0      		rjmp .L18
+ 117               	.LM19:
+ 118 0034 8CB1      		in r24,44-32
+ 119               	/* epilogue start */
+ 120               	.LM20:
+ 121 0036 0895      		ret
+ 122               	.LFE10:
+ 124               	.global	US_config
+ 126               	US_config:
+ 127               	.LFB11:
+ 128               	.LM21:
+ 129               	/* prologue: function */
+ 130               	/* frame size = 0 */
+ 131               	.LM22:
+ 132 0038 83E3      		ldi r24,lo8(51)
+ 133 003a 89B9      		out 41-32,r24
+ 134               	.LM23:
+ 135 003c 10BC      		out 64-32,__zero_reg__
+ 136               	.LM24:
+ 137 003e 88E1      		ldi r24,lo8(24)
+ 138 0040 8AB9      		out 42-32,r24
+ 139               	.LM25:
+ 140 0042 86E8      		ldi r24,lo8(-122)
+ 141 0044 80BD      		out 64-32,r24
+ 142               	/* epilogue start */
+ 143               	.LM26:
+ 144 0046 0895      		ret
+ 145               	.LFE11:
+ 147               		.data
+ 148               	.LC0:
+ 149 0000 0D0A 00   		.string	"\r\n"
+ 150               		.text
+ 151               	.global	main
+ 153               	main:
+ 154               	.LFB12:
+ 155               	.LM27:
+ 156               	/* prologue: function */
+ 157               	/* frame size = 0 */
+ 158               	.LBB16:
+ 159               	.LBB17:
+ 160               	.LM28:
+ 161 0048 83E3      		ldi r24,lo8(51)
+ 162 004a 89B9      		out 41-32,r24
+ 163               	.LM29:
+ 164 004c 10BC      		out 64-32,__zero_reg__
+ 165               	.LM30:
+ 166 004e 88E1      		ldi r24,lo8(24)
+ 167 0050 8AB9      		out 42-32,r24
+ 168               	.LM31:
+ 169 0052 86E8      		ldi r24,lo8(-122)
+ 170 0054 80BD      		out 64-32,r24
+ 171               	.L28:
+ 172               	.LBE17:
+ 173               	.LBE16:
+ 174               	.LBB18:
+ 175               	.LBB19:
+ 176               	.LM32:
+ 177 0056 5F9B      		sbis 43-32,7
+ 178 0058 00C0      		rjmp .L28
+ 179               	.LM33:
+ 180 005a 8CB1      		in r24,44-32
+ 181               	.LVL6:
+ 182               	.LBE19:
+ 183               	.LBE18:
+ 184               	.LM34:
+ 185 005c 90E0      		ldi r25,lo8(0)
+ 186 005e 0E94 0000 		call send_strin
+ 187               	.LVL7:
+ 188               	.LM35:
+ 189 0062 80E0      		ldi r24,lo8(.LC0)
+ 190 0064 90E0      		ldi r25,hi8(.LC0)
+ 191 0066 0E94 0000 		call send_strin
+ 192 006a 00C0      		rjmp .L28
+ 193               	.LFE12:
+ 259               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\Prio\AppData\Local\Temp/cctIdY5S.s:2      *ABS*:0000003f __SREG__
+C:\Users\Prio\AppData\Local\Temp/cctIdY5S.s:3      *ABS*:0000003e __SP_H__
+C:\Users\Prio\AppData\Local\Temp/cctIdY5S.s:4      *ABS*:0000003d __SP_L__
+C:\Users\Prio\AppData\Local\Temp/cctIdY5S.s:5      *ABS*:00000034 __CCP__
+C:\Users\Prio\AppData\Local\Temp/cctIdY5S.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Prio\AppData\Local\Temp/cctIdY5S.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Prio\AppData\Local\Temp/cctIdY5S.s:18     .text:00000000 US_TX
+C:\Users\Prio\AppData\Local\Temp/cctIdY5S.s:37     .text:00000008 send_string
+C:\Users\Prio\AppData\Local\Temp/cctIdY5S.s:70     .text:0000001c send_strin
+C:\Users\Prio\AppData\Local\Temp/cctIdY5S.s:108    .text:00000030 US_RX
+C:\Users\Prio\AppData\Local\Temp/cctIdY5S.s:126    .text:00000038 US_config
+C:\Users\Prio\AppData\Local\Temp/cctIdY5S.s:153    .text:00000048 main
+
+UNDEFINED SYMBOLS
+__do_copy_data

@@ -1,0 +1,127 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB6:
+  20               	.LM1:
+  21 0000 DF93      		push r29
+  22 0002 CF93      		push r28
+  23 0004 CDB7      		in r28,__SP_L__
+  24 0006 DEB7      		in r29,__SP_H__
+  25 0008 6097      		sbiw r28,16
+  26 000a 0FB6      		in __tmp_reg__,__SREG__
+  27 000c F894      		cli
+  28 000e DEBF      		out __SP_H__,r29
+  29 0010 0FBE      		out __SREG__,__tmp_reg__
+  30 0012 CDBF      		out __SP_L__,r28
+  31               	/* prologue: function */
+  32               	/* frame size = 16 */
+  33               	.LM2:
+  34 0014 80E8      		ldi r24,lo8(-128)
+  35 0016 8ABB      		out 58-32,r24
+  36               	.LM3:
+  37 0018 80E0      		ldi r24,lo8(0)
+  38 001a 0E94 0000 		call LCDInit
+  39               	.LM4:
+  40 001e 81E0      		ldi r24,lo8(1)
+  41 0020 60E0      		ldi r22,lo8(0)
+  42 0022 0E94 0000 		call LCDByte
+  43 0026 FE01      		movw r30,r28
+  44 0028 3196      		adiw r30,1
+  45               	.LBB18:
+  46               	.LBB19:
+  47               	.LBB20:
+  48               	.LBB21:
+  49               	.LM5:
+  50 002a 20ED      		ldi r18,lo8(2000)
+  51 002c 37E0      		ldi r19,hi8(2000)
+  52               	.L2:
+  53               	.LBE21:
+  54               	.LBE20:
+  55               	.LBE19:
+  56               	.LBE18:
+  57               	.LM6:
+  58 002e 89B3      		in r24,57-32
+  59 0030 8193      		st Z+,r24
+  60               	.LM7:
+  61 0032 DF9A      		sbi 59-32,7
+  62               	.LBB25:
+  63               	.LBB24:
+  64               	.LBB23:
+  65               	.LBB22:
+  66               	.LM8:
+  67 0034 C901      		movw r24,r18
+  68               	.LVL0:
+  69               	/* #APP */
+  70               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  71 0036 0197      		1: sbiw r24,1
+  72 0038 01F4      		brne 1b
+  73               	 ;  0 "" 2
+  74               	/* #NOAPP */
+  75               	.LBE22:
+  76               	.LBE23:
+  77               	.LBE24:
+  78               	.LBE25:
+  79               	.LM9:
+  80 003a DF98      		cbi 59-32,7
+  81               	.LBB26:
+  82               	.LBB27:
+  83               	.LBB28:
+  84               	.LBB29:
+  85               	.LM10:
+  86 003c C901      		movw r24,r18
+  87               	.LVL1:
+  88               	/* #APP */
+  89               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  90 003e 0197      		1: sbiw r24,1
+  91 0040 01F4      		brne 1b
+  92               	 ;  0 "" 2
+  93               	/* #NOAPP */
+  94               	.LBE29:
+  95               	.LBE28:
+  96               	.LBE27:
+  97               	.LBE26:
+  98               	.LM11:
+  99 0042 89B3      		in r24,57-32
+ 100               	.LVL2:
+ 101 0044 8F37      		cpi r24,lo8(127)
+ 102 0046 01F4      		brne .L2
+ 103               	.LM12:
+ 104 0048 CE01      		movw r24,r28
+ 105 004a 0196      		adiw r24,1
+ 106 004c 0E94 0000 		call LCDWriteString
+ 107               	.LM13:
+ 108 0050 80E0      		ldi r24,lo8(0)
+ 109 0052 90E0      		ldi r25,hi8(0)
+ 110               	/* epilogue start */
+ 111 0054 6096      		adiw r28,16
+ 112 0056 0FB6      		in __tmp_reg__,__SREG__
+ 113 0058 F894      		cli
+ 114 005a DEBF      		out __SP_H__,r29
+ 115 005c 0FBE      		out __SREG__,__tmp_reg__
+ 116 005e CDBF      		out __SP_L__,r28
+ 117 0060 CF91      		pop r28
+ 118 0062 DF91      		pop r29
+ 119 0064 0895      		ret
+ 120               	.LFE6:
+ 146               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\Prio\AppData\Local\Temp/cckitE64.s:2      *ABS*:0000003f __SREG__
+C:\Users\Prio\AppData\Local\Temp/cckitE64.s:3      *ABS*:0000003e __SP_H__
+C:\Users\Prio\AppData\Local\Temp/cckitE64.s:4      *ABS*:0000003d __SP_L__
+C:\Users\Prio\AppData\Local\Temp/cckitE64.s:5      *ABS*:00000034 __CCP__
+C:\Users\Prio\AppData\Local\Temp/cckitE64.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Prio\AppData\Local\Temp/cckitE64.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Prio\AppData\Local\Temp/cckitE64.s:18     .text:00000000 main
+
+UNDEFINED SYMBOLS
+LCDInit
+LCDByte
+LCDWriteString

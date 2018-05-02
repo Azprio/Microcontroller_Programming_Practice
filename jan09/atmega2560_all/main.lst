@@ -1,0 +1,169 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	US_config
+  18               	US_config:
+  19               	.LFB7:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 23E3      		ldi r18,lo8(51)
+  25 0002 2093 C400 		sts 196,r18
+  26               	.LM3:
+  27 0006 1092 C500 		sts 197,__zero_reg__
+  28               	.LM4:
+  29 000a 98ED      		ldi r25,lo8(-40)
+  30 000c 9093 C100 		sts 193,r25
+  31               	.LM5:
+  32 0010 86E0      		ldi r24,lo8(6)
+  33 0012 8093 C200 		sts 194,r24
+  34               	.LM6:
+  35 0016 2093 CC00 		sts 204,r18
+  36               	.LM7:
+  37 001a 1092 CD00 		sts 205,__zero_reg__
+  38               	.LM8:
+  39 001e 9093 C900 		sts 201,r25
+  40               	.LM9:
+  41 0022 8CE0      		ldi r24,lo8(12)
+  42 0024 8093 CA00 		sts 202,r24
+  43               	.LM10:
+  44               	/* #APP */
+  45               	 ;  32 "main.c" 1
+  46 0028 7894      		sei
+  47               	 ;  0 "" 2
+  48               	/* epilogue start */
+  49               	.LM11:
+  50               	/* #NOAPP */
+  51 002a 0895      		ret
+  52               	.LFE7:
+  54               	.global	main
+  56               	main:
+  57               	.LFB8:
+  58               	.LM12:
+  59               	/* prologue: function */
+  60               	/* frame size = 0 */
+  61               	.LM13:
+  62 002c 0F9A      		sbi 33-32,7
+  63               	.LM14:
+  64 002e 0E94 0000 		call US_config
+  65               	.LM15:
+  66 0032 1798      		cbi 34-32,7
+  67               	.LBB12:
+  68               	.LBB13:
+  69               	.LBB14:
+  70               	.LBB15:
+  71               	.LM16:
+  72 0034 28EC      		ldi r18,lo8(200)
+  73 0036 30E0      		ldi r19,hi8(200)
+  74               	.LVL0:
+  75               	.L5:
+  76               	.LBE15:
+  77               	.LBE14:
+  78               	.LBE13:
+  79               	.LBE12:
+  80               	.LM17:
+  81 0038 82B1      		in r24,34-32
+  82               	.LVL1:
+  83 003a 8058      		subi r24,lo8(-(-128))
+  84 003c 82B9      		out 34-32,r24
+  85 003e 88E8      		ldi r24,lo8(5000)
+  86 0040 93E1      		ldi r25,hi8(5000)
+  87               	.LVL2:
+  88               	.L4:
+  89               	.LBB19:
+  90               	.LBB18:
+  91               	.LBB17:
+  92               	.LBB16:
+  93               	.LM18:
+  94 0042 F901      		movw r30,r18
+  95               	/* #APP */
+  96               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  97 0044 3197      		1: sbiw r30,1
+  98 0046 01F4      		brne 1b
+  99               	 ;  0 "" 2
+ 100               	/* #NOAPP */
+ 101               	.LBE16:
+ 102               	.LBE17:
+ 103               	.LM19:
+ 104 0048 0197      		sbiw r24,1
+ 105               	.LM20:
+ 106 004a 01F4      		brne .L4
+ 107 004c 00C0      		rjmp .L5
+ 108               	.LBE18:
+ 109               	.LBE19:
+ 110               	.LFE8:
+ 112               	.global	__vector_25
+ 114               	__vector_25:
+ 115               	.LFB9:
+ 116               	.LM21:
+ 117 004e 1F92      		push __zero_reg__
+ 118 0050 0F92      		push r0
+ 119 0052 0FB6      		in r0,__SREG__
+ 120 0054 0F92      		push r0
+ 121 0056 1124      		clr __zero_reg__
+ 122 0058 8F93      		push r24
+ 123               	/* prologue: Signal */
+ 124               	/* frame size = 0 */
+ 125               	.LM22:
+ 126 005a 8091 C600 		lds r24,198
+ 127               	.LVL3:
+ 128               	.LM23:
+ 129 005e 8093 CE00 		sts 206,r24
+ 130               	/* epilogue start */
+ 131               	.LM24:
+ 132 0062 8F91      		pop r24
+ 133               	.LVL4:
+ 134 0064 0F90      		pop r0
+ 135 0066 0FBE      		out __SREG__,r0
+ 136 0068 0F90      		pop r0
+ 137 006a 1F90      		pop __zero_reg__
+ 138 006c 1895      		reti
+ 139               	.LFE9:
+ 141               	.global	__vector_36
+ 143               	__vector_36:
+ 144               	.LFB10:
+ 145               	.LM25:
+ 146 006e 1F92      		push __zero_reg__
+ 147 0070 0F92      		push r0
+ 148 0072 0FB6      		in r0,__SREG__
+ 149 0074 0F92      		push r0
+ 150 0076 1124      		clr __zero_reg__
+ 151 0078 8F93      		push r24
+ 152               	/* prologue: Signal */
+ 153               	/* frame size = 0 */
+ 154               	.LM26:
+ 155 007a 8091 CE00 		lds r24,206
+ 156               	.LVL5:
+ 157               	.LM27:
+ 158 007e 8093 C600 		sts 198,r24
+ 159               	/* epilogue start */
+ 160               	.LM28:
+ 161 0082 8F91      		pop r24
+ 162               	.LVL6:
+ 163 0084 0F90      		pop r0
+ 164 0086 0FBE      		out __SREG__,r0
+ 165 0088 0F90      		pop r0
+ 166 008a 1F90      		pop __zero_reg__
+ 167 008c 1895      		reti
+ 168               	.LFE10:
+ 218               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\Prio\AppData\Local\Temp/ccgkvUqj.s:2      *ABS*:0000003f __SREG__
+C:\Users\Prio\AppData\Local\Temp/ccgkvUqj.s:3      *ABS*:0000003e __SP_H__
+C:\Users\Prio\AppData\Local\Temp/ccgkvUqj.s:4      *ABS*:0000003d __SP_L__
+C:\Users\Prio\AppData\Local\Temp/ccgkvUqj.s:5      *ABS*:00000034 __CCP__
+C:\Users\Prio\AppData\Local\Temp/ccgkvUqj.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Prio\AppData\Local\Temp/ccgkvUqj.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Prio\AppData\Local\Temp/ccgkvUqj.s:18     .text:00000000 US_config
+C:\Users\Prio\AppData\Local\Temp/ccgkvUqj.s:56     .text:0000002c main
+C:\Users\Prio\AppData\Local\Temp/ccgkvUqj.s:114    .text:0000004e __vector_25
+C:\Users\Prio\AppData\Local\Temp/ccgkvUqj.s:143    .text:0000006e __vector_36
+
+NO UNDEFINED SYMBOLS

@@ -1,0 +1,99 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 8AB3      		in r24,58-32
+  25 0002 8360      		ori r24,lo8(3)
+  26 0004 8ABB      		out 58-32,r24
+  27               	.LM3:
+  28 0006 8AB3      		in r24,58-32
+  29 0008 837F      		andi r24,lo8(-13)
+  30 000a 8ABB      		out 58-32,r24
+  31 000c 4091 0000 		lds r20,preiv2
+  32               	.LVL0:
+  33 0010 2091 0000 		lds r18,preiv1
+  34               	.LVL1:
+  35               	.LBB2:
+  36               	.LM4:
+  37 0014 61E0      		ldi r22,lo8(1)
+  38               	.LM5:
+  39 0016 52E0      		ldi r21,lo8(2)
+  40 0018 00C0      		rjmp .L6
+  41               	.LVL2:
+  42               	.L4:
+  43               	.LBE2:
+  44               	.LM6:
+  45 001a 492F      		mov r20,r25
+  46 001c 232F      		mov r18,r19
+  47               	.LVL3:
+  48               	.L6:
+  49               	.LBB3:
+  50               	.LM7:
+  51 001e 89B3      		in r24,57-32
+  52               	.LM8:
+  53 0020 99B3      		in r25,57-32
+  54               	.LVL4:
+  55 0022 9870      		andi r25,lo8(8)
+  56               	.LM9:
+  57 0024 382F      		mov r19,r24
+  58               	.LVL5:
+  59 0026 3470      		andi r19,lo8(4)
+  60 0028 82FF      		sbrs r24,2
+  61 002a 00C0      		rjmp .L3
+  62 002c 3217      		cp r19,r18
+  63 002e 01F0      		breq .L3
+  64               	.LVL6:
+  65               	.LM10:
+  66 0030 8BB3      		in r24,59-32
+  67 0032 8627      		eor r24,r22
+  68 0034 8BBB      		out 59-32,r24
+  69               	.LVL7:
+  70               	.L3:
+  71               	.LM11:
+  72 0036 9923      		tst r25
+  73 0038 01F0      		breq .L4
+  74 003a 9417      		cp r25,r20
+  75 003c 01F0      		breq .L4
+  76               	.LVL8:
+  77               	.LM12:
+  78 003e 8BB3      		in r24,59-32
+  79 0040 8527      		eor r24,r21
+  80 0042 8BBB      		out 59-32,r24
+  81 0044 00C0      		rjmp .L4
+  82               	.LBE3:
+  83               	.LFE6:
+  85               	.global	preiv1
+  86               	.global	preiv1
+  87               		.section .bss
+  90               	preiv1:
+  91 0000 00        		.skip 1,0
+  92               	.global	preiv2
+  93               	.global	preiv2
+  96               	preiv2:
+  97 0001 00        		.skip 1,0
+ 122               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\Prio\AppData\Local\Temp/ccPgLhsE.s:2      *ABS*:0000003f __SREG__
+C:\Users\Prio\AppData\Local\Temp/ccPgLhsE.s:3      *ABS*:0000003e __SP_H__
+C:\Users\Prio\AppData\Local\Temp/ccPgLhsE.s:4      *ABS*:0000003d __SP_L__
+C:\Users\Prio\AppData\Local\Temp/ccPgLhsE.s:5      *ABS*:00000034 __CCP__
+C:\Users\Prio\AppData\Local\Temp/ccPgLhsE.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Prio\AppData\Local\Temp/ccPgLhsE.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Prio\AppData\Local\Temp/ccPgLhsE.s:18     .text:00000000 main
+C:\Users\Prio\AppData\Local\Temp/ccPgLhsE.s:96     .bss:00000001 preiv2
+C:\Users\Prio\AppData\Local\Temp/ccPgLhsE.s:90     .bss:00000000 preiv1
+
+UNDEFINED SYMBOLS
+__do_clear_bss

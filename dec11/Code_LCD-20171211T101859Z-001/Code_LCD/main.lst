@@ -1,0 +1,124 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               		.data
+  17               	.LC0:
+  18 0000 4100      		.string	"A"
+  19               	.LC1:
+  20 0002 4200      		.string	"B"
+  21               	.LC2:
+  22 0004 4300      		.string	"C"
+  23               	.LC3:
+  24 0006 4400      		.string	"D"
+  25               		.text
+  26               	.global	main
+  28               	main:
+  29               	.LFB6:
+  30               	.LM1:
+  31               	/* prologue: function */
+  32               	/* frame size = 0 */
+  33               	.LM2:
+  34 0000 80E0      		ldi r24,lo8(0)
+  35 0002 0E94 0000 		call LCDInit
+  36               	.LM3:
+  37 0006 81E0      		ldi r24,lo8(1)
+  38 0008 60E0      		ldi r22,lo8(0)
+  39 000a 0E94 0000 		call LCDByte
+  40               	.LM4:
+  41 000e 80E0      		ldi r24,lo8(0)
+  42 0010 60E0      		ldi r22,lo8(0)
+  43 0012 0E94 0000 		call LCDGotoXY
+  44 0016 80E0      		ldi r24,lo8(.LC0)
+  45 0018 90E0      		ldi r25,hi8(.LC0)
+  46 001a 0E94 0000 		call LCDWriteString
+  47               	.LM5:
+  48 001e 8FE0      		ldi r24,lo8(15)
+  49 0020 60E0      		ldi r22,lo8(0)
+  50 0022 0E94 0000 		call LCDGotoXY
+  51 0026 80E0      		ldi r24,lo8(.LC1)
+  52 0028 90E0      		ldi r25,hi8(.LC1)
+  53 002a 0E94 0000 		call LCDWriteString
+  54               	.LM6:
+  55 002e 80E0      		ldi r24,lo8(0)
+  56 0030 61E0      		ldi r22,lo8(1)
+  57 0032 0E94 0000 		call LCDGotoXY
+  58 0036 80E0      		ldi r24,lo8(.LC2)
+  59 0038 90E0      		ldi r25,hi8(.LC2)
+  60 003a 0E94 0000 		call LCDWriteString
+  61               	.LM7:
+  62 003e 8FE0      		ldi r24,lo8(15)
+  63 0040 61E0      		ldi r22,lo8(1)
+  64 0042 0E94 0000 		call LCDGotoXY
+  65 0046 80E0      		ldi r24,lo8(.LC3)
+  66 0048 90E0      		ldi r25,hi8(.LC3)
+  67 004a 0E94 0000 		call LCDWriteString
+  68               	.LM8:
+  69 004e 81E0      		ldi r24,lo8(1)
+  70 0050 60E0      		ldi r22,lo8(0)
+  71 0052 0E94 0000 		call LCDByte
+  72               	.LM9:
+  73 0056 80E0      		ldi r24,lo8(0)
+  74 0058 60E0      		ldi r22,lo8(0)
+  75 005a 0E94 0000 		call LCDGotoXY
+  76 005e 81E4      		ldi r24,lo8(65)
+  77 0060 90E0      		ldi r25,hi8(65)
+  78 0062 0E94 0000 		call LCDWriteString
+  79               	.LM10:
+  80 0066 8FEF      		ldi r24,lo8(1023)
+  81 0068 93E0      		ldi r25,hi8(1023)
+  82 006a 64E0      		ldi r22,lo8(4)
+  83 006c 70E0      		ldi r23,hi8(4)
+  84 006e 0E94 0000 		call LCDWriteInt
+  85 0072 8FEF      		ldi r24,lo8(-1)
+  86 0074 9FEF      		ldi r25,hi8(-1)
+  87               	.LVL0:
+  88               	.LBB12:
+  89               	.LBB13:
+  90               	.LBB14:
+  91               	.LBB15:
+  92               	.LM11:
+  93 0076 29E1      		ldi r18,lo8(25)
+  94 0078 30E0      		ldi r19,hi8(25)
+  95               	.L2:
+  96 007a F901      		movw r30,r18
+  97               	.LVL1:
+  98               	/* #APP */
+  99               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 100 007c 3197      		1: sbiw r30,1
+ 101 007e 01F4      		brne 1b
+ 102               	 ;  0 "" 2
+ 103               	/* #NOAPP */
+ 104               	.LBE15:
+ 105               	.LBE14:
+ 106               	.LM12:
+ 107 0080 0197      		sbiw r24,1
+ 108               	.LM13:
+ 109 0082 01F4      		brne .L2
+ 110               	.L6:
+ 111 0084 00C0      		rjmp .L6
+ 112               	.LBE13:
+ 113               	.LBE12:
+ 114               	.LFE6:
+ 140               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\Prio\AppData\Local\Temp/ccYYSiA1.s:2      *ABS*:0000003f __SREG__
+C:\Users\Prio\AppData\Local\Temp/ccYYSiA1.s:3      *ABS*:0000003e __SP_H__
+C:\Users\Prio\AppData\Local\Temp/ccYYSiA1.s:4      *ABS*:0000003d __SP_L__
+C:\Users\Prio\AppData\Local\Temp/ccYYSiA1.s:5      *ABS*:00000034 __CCP__
+C:\Users\Prio\AppData\Local\Temp/ccYYSiA1.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Prio\AppData\Local\Temp/ccYYSiA1.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Prio\AppData\Local\Temp/ccYYSiA1.s:28     .text:00000000 main
+
+UNDEFINED SYMBOLS
+LCDInit
+LCDByte
+LCDGotoXY
+LCDWriteString
+LCDWriteInt
+__do_copy_data

@@ -1,0 +1,129 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 8FEF      		ldi r24,lo8(-1)
+  25 0002 8ABB      		out 58-32,r24
+  26 0004 40E0      		ldi r20,lo8(0)
+  27 0006 50E0      		ldi r21,hi8(0)
+  28               	.LVL0:
+  29               	.LM3:
+  30 0008 A1E0      		ldi r26,lo8(1)
+  31 000a B0E0      		ldi r27,hi8(1)
+  32               	.LBB18:
+  33               	.LBB19:
+  34               	.LBB20:
+  35               	.LBB21:
+  36               	.LM4:
+  37 000c 68EC      		ldi r22,lo8(200)
+  38 000e 70E0      		ldi r23,hi8(200)
+  39               	.LVL1:
+  40               	.L5:
+  41               	.LBE21:
+  42               	.LBE20:
+  43               	.LBE19:
+  44               	.LBE18:
+  45               	.LM5:
+  46 0010 9A01      		movw r18,r20
+  47               	.LVL2:
+  48               	.L4:
+  49               	.LM6:
+  50 0012 CD01      		movw r24,r26
+  51               	.LVL3:
+  52 0014 022E      		mov r0,r18
+  53 0016 00C0      		rjmp 2f
+  54 0018 880F      	1:	lsl r24
+  55 001a 991F      		rol r25
+  56 001c 0A94      	2:	dec r0
+  57 001e 02F4      		brpl 1b
+  58 0020 8BBB      		out 59-32,r24
+  59               	.LM7:
+  60 0022 A901      		movw r20,r18
+  61 0024 4F5F      		subi r20,lo8(-(1))
+  62 0026 5F4F      		sbci r21,hi8(-(1))
+  63               	.LVL4:
+  64 0028 88E8      		ldi r24,lo8(5000)
+  65 002a 93E1      		ldi r25,hi8(5000)
+  66               	.LVL5:
+  67               	.L2:
+  68               	.LBB25:
+  69               	.LBB24:
+  70               	.LBB23:
+  71               	.LBB22:
+  72               	.LM8:
+  73 002c FB01      		movw r30,r22
+  74               	.LVL6:
+  75               	/* #APP */
+  76               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  77 002e 3197      		1: sbiw r30,1
+  78 0030 01F4      		brne 1b
+  79               	 ;  0 "" 2
+  80               	/* #NOAPP */
+  81               	.LBE22:
+  82               	.LBE23:
+  83               	.LM9:
+  84 0032 0197      		sbiw r24,1
+  85               	.LM10:
+  86 0034 01F4      		brne .L2
+  87               	.LBE24:
+  88               	.LBE25:
+  89               	.LM11:
+  90 0036 1BBA      		out 59-32,__zero_reg__
+  91 0038 88E8      		ldi r24,lo8(5000)
+  92 003a 93E1      		ldi r25,hi8(5000)
+  93               	.LVL7:
+  94               	.L3:
+  95               	.LBB26:
+  96               	.LBB27:
+  97               	.LBB28:
+  98               	.LBB29:
+  99               	.LM12:
+ 100 003c FB01      		movw r30,r22
+ 101               	.LVL8:
+ 102               	/* #APP */
+ 103               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 104 003e 3197      		1: sbiw r30,1
+ 105 0040 01F4      		brne 1b
+ 106               	 ;  0 "" 2
+ 107               	/* #NOAPP */
+ 108               	.LBE29:
+ 109               	.LBE28:
+ 110               	.LM13:
+ 111 0042 0197      		sbiw r24,1
+ 112               	.LM14:
+ 113 0044 01F4      		brne .L3
+ 114 0046 20E0      		ldi r18,lo8(0)
+ 115 0048 30E0      		ldi r19,hi8(0)
+ 116               	.LVL9:
+ 117               	.LBE27:
+ 118               	.LBE26:
+ 119               	.LM15:
+ 120 004a 4830      		cpi r20,8
+ 121 004c 5105      		cpc r21,__zero_reg__
+ 122 004e 01F4      		brne .L5
+ 123               	.LVL10:
+ 124 0050 00C0      		rjmp .L4
+ 125               	.LFE6:
+ 151               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\Nafiur\AppData\Local\Temp/ccTTvKvw.s:2      *ABS*:0000003f __SREG__
+C:\Users\Nafiur\AppData\Local\Temp/ccTTvKvw.s:3      *ABS*:0000003e __SP_H__
+C:\Users\Nafiur\AppData\Local\Temp/ccTTvKvw.s:4      *ABS*:0000003d __SP_L__
+C:\Users\Nafiur\AppData\Local\Temp/ccTTvKvw.s:5      *ABS*:00000034 __CCP__
+C:\Users\Nafiur\AppData\Local\Temp/ccTTvKvw.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Nafiur\AppData\Local\Temp/ccTTvKvw.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Nafiur\AppData\Local\Temp/ccTTvKvw.s:18     .text:00000000 main
+
+NO UNDEFINED SYMBOLS

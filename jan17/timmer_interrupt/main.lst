@@ -1,0 +1,130 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	Time_config
+  18               	Time_config:
+  19               	.LFB2:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 83B7      		in r24,83-32
+  25 0002 8560      		ori r24,lo8(5)
+  26 0004 83BF      		out 83-32,r24
+  27               	.LM3:
+  28 0006 89B7      		in r24,89-32
+  29 0008 8160      		ori r24,lo8(1)
+  30 000a 89BF      		out 89-32,r24
+  31               	.LM4:
+  32               	/* #APP */
+  33               	 ;  9 "main.c" 1
+  34 000c 7894      		sei
+  35               	 ;  0 "" 2
+  36               	/* epilogue start */
+  37               	.LM5:
+  38               	/* #NOAPP */
+  39 000e 0895      		ret
+  40               	.LFE2:
+  42               	.global	main
+  44               	main:
+  45               	.LFB3:
+  46               	.LM6:
+  47               	/* prologue: function */
+  48               	/* frame size = 0 */
+  49               	.LBB4:
+  50               	.LBB5:
+  51               	.LM7:
+  52 0010 83B7      		in r24,83-32
+  53 0012 8560      		ori r24,lo8(5)
+  54 0014 83BF      		out 83-32,r24
+  55               	.LM8:
+  56 0016 89B7      		in r24,89-32
+  57 0018 8160      		ori r24,lo8(1)
+  58 001a 89BF      		out 89-32,r24
+  59               	.LM9:
+  60               	/* #APP */
+  61               	 ;  9 "main.c" 1
+  62 001c 7894      		sei
+  63               	 ;  0 "" 2
+  64               	/* #NOAPP */
+  65               	.LBE5:
+  66               	.LBE4:
+  67               	.LM10:
+  68 001e A09A      		sbi 52-32,0
+  69               	.LM11:
+  70 0020 21E0      		ldi r18,lo8(1)
+  71               	.L8:
+  72               	.LM12:
+  73 0022 8091 0000 		lds r24,ov_count
+  74 0026 9091 0000 		lds r25,(ov_count)+1
+  75 002a 0C97      		sbiw r24,12
+  76 002c 01F4      		brne .L8
+  77 002e 82B7      		in r24,82-32
+  78 0030 8433      		cpi r24,lo8(52)
+  79 0032 00F0      		brlo .L8
+  80               	.LM13:
+  81 0034 85B3      		in r24,53-32
+  82 0036 8227      		eor r24,r18
+  83 0038 85BB      		out 53-32,r24
+  84               	.LM14:
+  85 003a 12BE      		out 82-32,__zero_reg__
+  86               	.LM15:
+  87 003c 1092 0000 		sts (ov_count)+1,__zero_reg__
+  88 0040 1092 0000 		sts ov_count,__zero_reg__
+  89 0044 00C0      		rjmp .L8
+  90               	.LFE3:
+  92               	.global	__vector_11
+  94               	__vector_11:
+  95               	.LFB4:
+  96               	.LM16:
+  97 0046 1F92      		push __zero_reg__
+  98 0048 0F92      		push r0
+  99 004a 0FB6      		in r0,__SREG__
+ 100 004c 0F92      		push r0
+ 101 004e 1124      		clr __zero_reg__
+ 102 0050 8F93      		push r24
+ 103 0052 9F93      		push r25
+ 104               	/* prologue: Signal */
+ 105               	/* frame size = 0 */
+ 106               	.LM17:
+ 107 0054 8091 0000 		lds r24,ov_count
+ 108 0058 9091 0000 		lds r25,(ov_count)+1
+ 109 005c 0196      		adiw r24,1
+ 110 005e 9093 0000 		sts (ov_count)+1,r25
+ 111 0062 8093 0000 		sts ov_count,r24
+ 112               	/* epilogue start */
+ 113               	.LM18:
+ 114 0066 9F91      		pop r25
+ 115 0068 8F91      		pop r24
+ 116 006a 0F90      		pop r0
+ 117 006c 0FBE      		out __SREG__,r0
+ 118 006e 0F90      		pop r0
+ 119 0070 1F90      		pop __zero_reg__
+ 120 0072 1895      		reti
+ 121               	.LFE4:
+ 123               	.global	ov_count
+ 124               	.global	ov_count
+ 125               		.section .bss
+ 128               	ov_count:
+ 129 0000 0000      		.skip 2,0
+ 170               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\Prio\AppData\Local\Temp/ccS7oFQa.s:2      *ABS*:0000003f __SREG__
+C:\Users\Prio\AppData\Local\Temp/ccS7oFQa.s:3      *ABS*:0000003e __SP_H__
+C:\Users\Prio\AppData\Local\Temp/ccS7oFQa.s:4      *ABS*:0000003d __SP_L__
+C:\Users\Prio\AppData\Local\Temp/ccS7oFQa.s:5      *ABS*:00000034 __CCP__
+C:\Users\Prio\AppData\Local\Temp/ccS7oFQa.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Prio\AppData\Local\Temp/ccS7oFQa.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Prio\AppData\Local\Temp/ccS7oFQa.s:18     .text:00000000 Time_config
+C:\Users\Prio\AppData\Local\Temp/ccS7oFQa.s:44     .text:00000010 main
+C:\Users\Prio\AppData\Local\Temp/ccS7oFQa.s:128    .bss:00000000 ov_count
+C:\Users\Prio\AppData\Local\Temp/ccS7oFQa.s:94     .text:00000046 __vector_11
+
+UNDEFINED SYMBOLS
+__do_clear_bss

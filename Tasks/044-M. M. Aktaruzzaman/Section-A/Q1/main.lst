@@ -1,0 +1,234 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	seg1
+  18               	seg1:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	.LVL0:
+  22               	/* prologue: function */
+  23               	/* frame size = 0 */
+  24               	.LM2:
+  25 0000 9BB3      		in r25,59-32
+  26 0002 1BBA      		out 59-32,__zero_reg__
+  27               	.LM3:
+  28 0004 8BBB      		out 59-32,r24
+  29               	.LM4:
+  30 0006 DF98      		cbi 59-32,7
+  31               	.LBB21:
+  32               	.LBB22:
+  33               	.LBB23:
+  34               	.LBB24:
+  35               	.LM5:
+  36 0008 80E2      		ldi r24,lo8(20000)
+  37 000a 9EE4      		ldi r25,hi8(20000)
+  38               	.LVL1:
+  39               	/* #APP */
+  40               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  41 000c 0197      		1: sbiw r24,1
+  42 000e 01F4      		brne 1b
+  43               	 ;  0 "" 2
+  44               	/* epilogue start */
+  45               	/* #NOAPP */
+  46               	.LBE24:
+  47               	.LBE23:
+  48               	.LBE22:
+  49               	.LBE21:
+  50               	.LM6:
+  51 0010 0895      		ret
+  52               	.LFE6:
+  54               	.global	init_int0
+  56               	init_int0:
+  57               	.LFB8:
+  58               	.LM7:
+  59               	/* prologue: function */
+  60               	/* frame size = 0 */
+  61               	.LM8:
+  62               	/* #APP */
+  63               	 ;  48 "main.c" 1
+  64 0012 7894      		sei
+  65               	 ;  0 "" 2
+  66               	.LM9:
+  67               	/* #NOAPP */
+  68 0014 85B7      		in r24,85-32
+  69 0016 8260      		ori r24,lo8(2)
+  70 0018 85BF      		out 85-32,r24
+  71               	.LM10:
+  72 001a 8BB7      		in r24,91-32
+  73 001c 8064      		ori r24,lo8(64)
+  74 001e 8BBF      		out 91-32,r24
+  75               	/* epilogue start */
+  76               	.LM11:
+  77 0020 0895      		ret
+  78               	.LFE8:
+  80               	.global	__vector_1
+  82               	__vector_1:
+  83               	.LFB9:
+  84               	.LM12:
+  85 0022 1F92      		push __zero_reg__
+  86 0024 0F92      		push r0
+  87 0026 0FB6      		in r0,__SREG__
+  88 0028 0F92      		push r0
+  89 002a 1124      		clr __zero_reg__
+  90 002c 8F93      		push r24
+  91 002e 9F93      		push r25
+  92               	/* prologue: Signal */
+  93               	/* frame size = 0 */
+  94               	.LM13:
+  95 0030 8091 0000 		lds r24,total_pulse_counter
+  96 0034 9091 0000 		lds r25,(total_pulse_counter)+1
+  97 0038 0196      		adiw r24,1
+  98 003a 9093 0000 		sts (total_pulse_counter)+1,r25
+  99 003e 8093 0000 		sts total_pulse_counter,r24
+ 100               	/* epilogue start */
+ 101               	.LM14:
+ 102 0042 9F91      		pop r25
+ 103 0044 8F91      		pop r24
+ 104 0046 0F90      		pop r0
+ 105 0048 0FBE      		out __SREG__,r0
+ 106 004a 0F90      		pop r0
+ 107 004c 1F90      		pop __zero_reg__
+ 108 004e 1895      		reti
+ 109               	.LFE9:
+ 111               	.global	main
+ 113               	main:
+ 114               	.LFB7:
+ 115               	.LM15:
+ 116 0050 CF93      		push r28
+ 117 0052 DF93      		push r29
+ 118               	/* prologue: function */
+ 119               	/* frame size = 0 */
+ 120               	.LBB25:
+ 121               	.LBB26:
+ 122               	.LM16:
+ 123               	/* #APP */
+ 124               	 ;  48 "main.c" 1
+ 125 0054 7894      		sei
+ 126               	 ;  0 "" 2
+ 127               	.LM17:
+ 128               	/* #NOAPP */
+ 129 0056 85B7      		in r24,85-32
+ 130 0058 8260      		ori r24,lo8(2)
+ 131 005a 85BF      		out 85-32,r24
+ 132               	.LM18:
+ 133 005c 8BB7      		in r24,91-32
+ 134 005e 8064      		ori r24,lo8(64)
+ 135 0060 8BBF      		out 91-32,r24
+ 136               	.LBE26:
+ 137               	.LBE25:
+ 138               	.LM19:
+ 139 0062 84B3      		in r24,52-32
+ 140 0064 9FEF      		ldi r25,lo8(-1)
+ 141 0066 94BB      		out 52-32,r25
+ 142               	.LM20:
+ 143 0068 81B3      		in r24,49-32
+ 144 006a 8363      		ori r24,lo8(51)
+ 145 006c 81BB      		out 49-32,r24
+ 146               	.LM21:
+ 147 006e 8AB3      		in r24,58-32
+ 148 0070 9ABB      		out 58-32,r25
+ 149               	.LBB27:
+ 150               	.LBB28:
+ 151               	.LBB29:
+ 152               	.LBB30:
+ 153               	.LBB31:
+ 154               	.LBB32:
+ 155               	.LM22:
+ 156 0072 C0E2      		ldi r28,lo8(20000)
+ 157 0074 DEE4      		ldi r29,hi8(20000)
+ 158               	.LVL2:
+ 159               	.L12:
+ 160               	.LBE32:
+ 161               	.LBE31:
+ 162               	.LBE30:
+ 163               	.LBE29:
+ 164               	.LBE28:
+ 165               	.LBE27:
+ 166               	.LM23:
+ 167 0076 8091 0000 		lds r24,total_pulse_counter
+ 168 007a 9091 0000 		lds r25,(total_pulse_counter)+1
+ 169 007e 9C01      		movw r18,r24
+ 170 0080 220F      		lsl r18
+ 171 0082 331F      		rol r19
+ 172 0084 220F      		lsl r18
+ 173 0086 331F      		rol r19
+ 174 0088 280F      		add r18,r24
+ 175 008a 391F      		adc r19,r25
+ 176 008c 2093 0000 		sts total_cost,r18
+ 177 0090 3093 0000 		sts total_cost+1,r19
+ 178               	.LM24:
+ 179 0094 C901      		movw r24,r18
+ 180 0096 0E94 0000 		call BCD_Converter
+ 181               	.LVL3:
+ 182               	.LM25:
+ 183 009a 8091 0000 		lds r24,total_pulse_counter
+ 184 009e 9091 0000 		lds r25,(total_pulse_counter)+1
+ 185               	.LBB38:
+ 186               	.LBB37:
+ 187               	.LM26:
+ 188 00a2 2BB3      		in r18,59-32
+ 189 00a4 1BBA      		out 59-32,__zero_reg__
+ 190               	.LM27:
+ 191 00a6 8BBB      		out 59-32,r24
+ 192               	.LM28:
+ 193 00a8 DF98      		cbi 59-32,7
+ 194               	.LBB36:
+ 195               	.LBB35:
+ 196               	.LBB34:
+ 197               	.LBB33:
+ 198               	.LM29:
+ 199 00aa FE01      		movw r30,r28
+ 200               	.LVL4:
+ 201               	/* #APP */
+ 202               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 203 00ac 3197      		1: sbiw r30,1
+ 204 00ae 01F4      		brne 1b
+ 205               	 ;  0 "" 2
+ 206               	/* #NOAPP */
+ 207               	.LBE33:
+ 208               	.LBE34:
+ 209               	.LBE35:
+ 210               	.LBE36:
+ 211               	.LBE37:
+ 212               	.LBE38:
+ 213               	.LM30:
+ 214 00b0 0A97      		sbiw r24,10
+ 215 00b2 04F0      		brlt .L12
+ 216               	.LM31:
+ 217 00b4 1092 0000 		sts (total_pulse_counter)+1,__zero_reg__
+ 218 00b8 1092 0000 		sts total_pulse_counter,__zero_reg__
+ 219 00bc 00C0      		rjmp .L12
+ 220               	.LFE7:
+ 222               	.global	total_pulse_counter
+ 223               	.global	total_pulse_counter
+ 224               		.section .bss
+ 227               	total_pulse_counter:
+ 228 0000 0000      		.skip 2,0
+ 229               	.global	total_cost
+ 230               	.global	total_cost
+ 233               	total_cost:
+ 234 0002 0000      		.skip 2,0
+ 283               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\Prio\AppData\Local\Temp/cc2dKUEd.s:2      *ABS*:0000003f __SREG__
+C:\Users\Prio\AppData\Local\Temp/cc2dKUEd.s:3      *ABS*:0000003e __SP_H__
+C:\Users\Prio\AppData\Local\Temp/cc2dKUEd.s:4      *ABS*:0000003d __SP_L__
+C:\Users\Prio\AppData\Local\Temp/cc2dKUEd.s:5      *ABS*:00000034 __CCP__
+C:\Users\Prio\AppData\Local\Temp/cc2dKUEd.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Prio\AppData\Local\Temp/cc2dKUEd.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Prio\AppData\Local\Temp/cc2dKUEd.s:18     .text:00000000 seg1
+C:\Users\Prio\AppData\Local\Temp/cc2dKUEd.s:56     .text:00000012 init_int0
+C:\Users\Prio\AppData\Local\Temp/cc2dKUEd.s:82     .text:00000022 __vector_1
+C:\Users\Prio\AppData\Local\Temp/cc2dKUEd.s:227    .bss:00000000 total_pulse_counter
+C:\Users\Prio\AppData\Local\Temp/cc2dKUEd.s:113    .text:00000050 main
+C:\Users\Prio\AppData\Local\Temp/cc2dKUEd.s:233    .bss:00000002 total_cost
+
+UNDEFINED SYMBOLS
+BCD_Converter
+__do_clear_bss

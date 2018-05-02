@@ -1,0 +1,64 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 87B3      		in r24,55-32
+  25 0002 8FEF      		ldi r24,lo8(-1)
+  26 0004 87BB      		out 55-32,r24
+  27               	.LM3:
+  28 0006 D098      		cbi 58-32,0
+  29               	.L5:
+  30               	.LBB2:
+  31               	.LM4:
+  32 0008 89B3      		in r24,57-32
+  33               	.LM5:
+  34 000a C09A      		sbi 56-32,0
+  35               	.LM6:
+  36 000c C798      		cbi 56-32,7
+  37               	.LM7:
+  38 000e 80FF      		sbrs r24,0
+  39 0010 00C0      		rjmp .L2
+  40               	.LM8:
+  41 0012 88B3      		in r24,56-32
+  42 0014 8465      		ori r24,lo8(84)
+  43 0016 88BB      		out 56-32,r24
+  44               	.LM9:
+  45 0018 88B3      		in r24,56-32
+  46 001a 857D      		andi r24,lo8(-43)
+  47 001c 00C0      		rjmp .L6
+  48               	.L2:
+  49               	.LM10:
+  50 001e 88B3      		in r24,56-32
+  51 0020 8A62      		ori r24,lo8(42)
+  52 0022 88BB      		out 56-32,r24
+  53               	.LM11:
+  54 0024 88B3      		in r24,56-32
+  55 0026 8B7A      		andi r24,lo8(-85)
+  56               	.L6:
+  57 0028 88BB      		out 56-32,r24
+  58 002a 00C0      		rjmp .L5
+  59               	.LBE2:
+  60               	.LFE6:
+  86               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\Prio\AppData\Local\Temp/cczhGHVz.s:2      *ABS*:0000003f __SREG__
+C:\Users\Prio\AppData\Local\Temp/cczhGHVz.s:3      *ABS*:0000003e __SP_H__
+C:\Users\Prio\AppData\Local\Temp/cczhGHVz.s:4      *ABS*:0000003d __SP_L__
+C:\Users\Prio\AppData\Local\Temp/cczhGHVz.s:5      *ABS*:00000034 __CCP__
+C:\Users\Prio\AppData\Local\Temp/cczhGHVz.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Prio\AppData\Local\Temp/cczhGHVz.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Prio\AppData\Local\Temp/cczhGHVz.s:18     .text:00000000 main
+
+NO UNDEFINED SYMBOLS

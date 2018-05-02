@@ -1,0 +1,118 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	ADC_Initialization
+  18               	ADC_Initialization:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 80E4      		ldi r24,lo8(64)
+  25 0002 87B9      		out 39-32,r24
+  26               	.LM3:
+  27 0004 87E8      		ldi r24,lo8(-121)
+  28 0006 86B9      		out 38-32,r24
+  29               	/* epilogue start */
+  30               	.LM4:
+  31 0008 0895      		ret
+  32               	.LFE6:
+  34               	.global	Read_ADC
+  36               	Read_ADC:
+  37               	.LFB7:
+  38               	.LM5:
+  39               	/* prologue: function */
+  40               	/* frame size = 0 */
+  41               	.LM6:
+  42 000a 87B1      		in r24,39-32
+  43 000c 8660      		ori r24,lo8(6)
+  44 000e 87B9      		out 39-32,r24
+  45               	.LM7:
+  46 0010 369A      		sbi 38-32,6
+  47               	.L4:
+  48               	.LM8:
+  49 0012 3699      		sbic 38-32,6
+  50 0014 00C0      		rjmp .L4
+  51               	.LM9:
+  52 0016 24B1      		in r18,36-32
+  53 0018 30E0      		ldi r19,lo8(0)
+  54               	.LM10:
+  55 001a 45B1      		in r20,37-32
+  56 001c 942F      		mov r25,r20
+  57 001e 80E0      		ldi r24,lo8(0)
+  58 0020 282B      		or r18,r24
+  59 0022 392B      		or r19,r25
+  60               	.LM11:
+  61 0024 C901      		movw r24,r18
+  62               	/* epilogue start */
+  63 0026 0895      		ret
+  64               	.LFE7:
+  66               	.global	main
+  68               	main:
+  69               	.LFB8:
+  70               	.LM12:
+  71 0028 0F93      		push r16
+  72 002a 1F93      		push r17
+  73               	/* prologue: function */
+  74               	/* frame size = 0 */
+  75               	.LBB5:
+  76               	.LBB6:
+  77               	.LM13:
+  78 002c 80E4      		ldi r24,lo8(64)
+  79 002e 87B9      		out 39-32,r24
+  80               	.LM14:
+  81 0030 87E8      		ldi r24,lo8(-121)
+  82 0032 86B9      		out 38-32,r24
+  83               	.LBE6:
+  84               	.LBE5:
+  85               	.LM15:
+  86 0034 84B3      		in r24,52-32
+  87 0036 8FEF      		ldi r24,lo8(-1)
+  88 0038 84BB      		out 52-32,r24
+  89               	.LM16:
+  90 003a 81B3      		in r24,49-32
+  91 003c 8F60      		ori r24,lo8(15)
+  92 003e 81BB      		out 49-32,r24
+  93               	.LM17:
+  94 0040 BC9A      		sbi 55-32,4
+  95               	.LVL0:
+  96               	.L11:
+  97               	.LBB7:
+  98               	.LM18:
+  99 0042 0E94 0000 		call Read_ADC
+ 100 0046 8C01      		movw r16,r24
+ 101               	.LM19:
+ 102 0048 0E94 0000 		call BCD_Converter
+ 103               	.LM20:
+ 104 004c 0C5B      		subi r16,lo8(700)
+ 105 004e 1240      		sbci r17,hi8(700)
+ 106 0050 04F4      		brge .L8
+ 107               	.LM21:
+ 108 0052 C49A      		sbi 56-32,4
+ 109 0054 00C0      		rjmp .L11
+ 110               	.L8:
+ 111               	.LM22:
+ 112 0056 C498      		cbi 56-32,4
+ 113 0058 00C0      		rjmp .L11
+ 114               	.LBE7:
+ 115               	.LFE8:
+ 157               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\Prio\AppData\Local\Temp/ccaMT3te.s:2      *ABS*:0000003f __SREG__
+C:\Users\Prio\AppData\Local\Temp/ccaMT3te.s:3      *ABS*:0000003e __SP_H__
+C:\Users\Prio\AppData\Local\Temp/ccaMT3te.s:4      *ABS*:0000003d __SP_L__
+C:\Users\Prio\AppData\Local\Temp/ccaMT3te.s:5      *ABS*:00000034 __CCP__
+C:\Users\Prio\AppData\Local\Temp/ccaMT3te.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Prio\AppData\Local\Temp/ccaMT3te.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Prio\AppData\Local\Temp/ccaMT3te.s:18     .text:00000000 ADC_Initialization
+C:\Users\Prio\AppData\Local\Temp/ccaMT3te.s:36     .text:0000000a Read_ADC
+C:\Users\Prio\AppData\Local\Temp/ccaMT3te.s:68     .text:00000028 main
+
+UNDEFINED SYMBOLS
+BCD_Converter
